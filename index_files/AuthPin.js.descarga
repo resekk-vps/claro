@@ -1,0 +1,18 @@
+function onFocus(e) {
+    e.preventDefault();
+    this.parentNode.classList.add("active");
+}
+
+function onFocusOut(e) {
+    e.preventDefault();
+    if (this.value === "") {
+        this.parentNode.classList.remove("active");
+    }
+}
+
+var login__input = document.querySelectorAll(".loginform__input");
+
+for (var i = 0, k = login__input.length; i < k; i++) {
+    login__input[i].addEventListener("focusin", onFocus.bind(login__input[i]), false)
+    login__input[i].addEventListener("focusout", onFocusOut.bind(login__input[i]), false)
+}
